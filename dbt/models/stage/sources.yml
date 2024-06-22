@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: raw
+    quoting:
+      database: true
+      schema: true
+      identifier: true
+    tables:
+      - name: users
+      - name: products
+      - name: purchases

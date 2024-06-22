@@ -18,14 +18,14 @@ RUN apt -y update && apt -y upgrade && \
 # Install dbt adapter
 RUN set -ex && \
     python -m pip install --upgrade pip setuptools && \
-    python -m pip install dbt-clickhouse==1.4.0 dbt-core==1.4.6
-
-# Define environment variables
-ENV DBT_PROFILES_DIR=/usr/app/.dbt \
-    PATH=$PATH:/root/yandex-cloud/bin
+    python -m pip install dbt-postgres==1.5.3 dbt-core==1.5.3
 
 # Set work directory
 WORKDIR /usr/app/
+
+# Define environment variables
+ENV DBT_PROFILES_DIR=. \
+    PATH=$PATH:/root/yandex-cloud/bin
 
 # Keep container running
 ENTRYPOINT ["tail", "-f", "/dev/null"]
