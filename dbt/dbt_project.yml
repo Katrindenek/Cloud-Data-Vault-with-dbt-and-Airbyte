@@ -1,0 +1,63 @@
+name: 'data_vault_project'
+version: '1.0.0'
+profile: 'data_vault_project'
+
+config-version: 2
+
+models:
+  data_vault_project:
+    stage:
+      schema: stg
+      materialized: view
+      tags: ['stage']
+      enabled: true
+
+    vault:
+      schema: 'dds'
+      materialized: incremental
+      tags: ['vault', 'dds']
+      hubs:
+        tags:
+          - 'hub'
+      links:
+        tags:
+          - 'link'
+      sats:
+        tags:
+          - 'sat'
+#    dm:
+#      +schema: 'dm'
+#      +materialized: view
+
+#sources:
+#  # project names
+#  data_vault_project:
+#    models:
+#      sample_data:
+#        users:
+#          +enabled: true
+
+
+# Define how tests should be run
+test-paths: ["tests/"]
+
+# Specify where dbt should look for models
+model-paths: ["models/"]
+
+# Specify where dbt should look for macros
+macro-paths: ["macros/"]
+
+# Specify where dbt should look for analysis files
+analysis-paths: ["analysis/"]
+
+# Specify where dbt should look for seed files
+seed-paths: ["data/"]
+
+# Specify where dbt should look for snapshot files
+snapshot-paths: ["snapshots/"]
+
+# Specify where dbt should look for documentation files
+docs-paths: ["docs/"]
+
+# Specify the dbt version that is required to run this project
+require-dbt-version: [">=0.19.0"]
