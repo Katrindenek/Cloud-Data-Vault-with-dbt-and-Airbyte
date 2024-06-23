@@ -25,9 +25,11 @@ models:
       sats:
         tags:
           - 'sat'
-#    dm:
-#      +schema: 'dm'
-#      +materialized: view
+
+    mart:
+      schema: 'dm'
+      materialized: view
+      tags: ['dm', 'mart']
 
 #sources:
 #  # project names

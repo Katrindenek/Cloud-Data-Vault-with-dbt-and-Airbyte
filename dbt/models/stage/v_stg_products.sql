@@ -2,17 +2,18 @@
 source_model:
   raw: 'products'
 derived_columns:
-  LOAD_DATE: ('{{ run_started_at.strftime("%Y-%m-%d") }}')::DATE
+  LOAD_DATE: ('{{ run_started_at.strftime("%Y-%m-%d %H:%M:%S") }}')::TIMESTAMP
   RECORD_SOURCE: "'AIRBYTE_SAMPLE_DATA'"
   EFFECTIVE_FROM: 'CREATED_AT'
+  BRAND_MODEL: "MAKE || '_' || MODEL"
 hashed_columns:
-  PRODUCT_HK:
-    - 'MAKE'
-    - 'YEAR'
-    - 'MODEL'
+  PRODUCT_HK: 'ID'
   PRODUCT_HASHDIFF:
     is_hashdiff: true
     columns:
+      - 'MAKE'
+      - 'YEAR'
+      - 'MODEL'
       - 'PRICE'
 {%- endset -%}
 

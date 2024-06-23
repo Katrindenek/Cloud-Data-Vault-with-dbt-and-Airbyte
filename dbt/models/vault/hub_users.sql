@@ -1,6 +1,6 @@
 {%- set source_model = "v_stg_users" -%}
 {%- set src_pk = "USER_HK" -%}
-{%- set src_nk = "ID" -%}
+{%- set src_nk = "EMAIL" -%}
 {%- set src_ldts = "LOAD_DATE" -%}
 {%- set src_source = "RECORD_SOURCE" -%}
 

@@ -7,6 +7,7 @@ src_hashdiff:
 src_payload:
   - 'AGE'
   - 'NAME'
+  - 'EMAIL'
   - 'TITLE'
   - 'GENDER'
   - 'HEIGHT'
@@ -17,6 +18,8 @@ src_payload:
   - 'OCCUPATION'
   - 'NATIONALITY'
   - 'ACADEMIC_DEGREE'
+  - 'CREATED_AT'
+  - 'UPDATED_AT'
 src_eff: "EFFECTIVE_FROM"
 src_ldts: "LOAD_DATE"
 src_source: "RECORD_SOURCE"

@@ -3,6 +3,7 @@ services:
 
   dev:
     build: .
+    container_name: infrastructure
     volumes:
      - .:/usr/app/
     ports:
@@ -10,6 +11,7 @@ services:
     environment:
       - DBT_USER=${TF_VAR_postgresql_user}
       - DBT_PASSWORD=${TF_VAR_postgresql_password}
+      - DBT_DBNAME=${TF_VAR_postgresql_dbname}
 
   superset:
     image: apache/superset
@@ -35,7 +37,7 @@ services:
       POSTGRES_USER: superset
       POSTGRES_PASSWORD: superset
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - ./postgres_data:/var/lib/postgresql/data
 
   redis:
     image: redis:6
@@ -46,4 +48,3 @@ services:
 
 volumes:
   superset_home:
-  postgres_data:

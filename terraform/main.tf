@@ -69,7 +69,7 @@ resource "yandex_compute_instance" "airbyte" {
   }
 
   metadata = {
-    user-data = "${file("cloud-init.yaml")}"
+    user-data = file("cloud-init.yaml")
   }
 }
 
@@ -105,7 +105,7 @@ resource "yandex_mdb_postgresql_user" "pguser" {
 
 resource "yandex_mdb_postgresql_database" "exampledb" {
   cluster_id = yandex_mdb_postgresql_cluster.postgresql_cluster.id
-  name       = "exampledb"
+  name       = var.postgresql_dbname
   owner      = yandex_mdb_postgresql_user.pguser.name
   depends_on = [yandex_mdb_postgresql_user.pguser]
 }
