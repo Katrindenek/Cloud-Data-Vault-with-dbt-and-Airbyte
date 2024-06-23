@@ -14,6 +14,11 @@ variable "postgresql_user" {
   type        = string
 }
 
+variable "postgresql_dbname" {
+  description = "PostgreSQL DB name"
+  type        = string
+}
+
 output "postgresql_cluster_id" {
   value = yandex_mdb_postgresql_cluster.postgresql_cluster.id
 }

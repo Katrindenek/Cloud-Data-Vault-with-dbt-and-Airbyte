@@ -1,6 +1,6 @@
 {%- set source_model = "v_stg_products" -%}
 {%- set src_pk = "PRODUCT_HK" -%}
-{%- set src_nk = "ID" -%}
+{%- set src_nk = "BRAND_MODEL" -%}
 {%- set src_ldts = "LOAD_DATE" -%}
 {%- set src_source = "RECORD_SOURCE" -%}
 

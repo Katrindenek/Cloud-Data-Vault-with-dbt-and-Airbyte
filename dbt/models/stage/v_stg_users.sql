@@ -2,16 +2,17 @@
 source_model:
   raw: 'users'
 derived_columns:
-  LOAD_DATE: ('{{ run_started_at.strftime("%Y-%m-%d") }}')::DATE
+  LOAD_DATE: ('{{ run_started_at.strftime("%Y-%m-%d %H:%M:%S") }}')::TIMESTAMP
   RECORD_SOURCE: "'AIRBYTE_SAMPLE_DATA'"
   EFFECTIVE_FROM: 'CREATED_AT'
 hashed_columns:
-  USER_HK: 'EMAIL'
+  USER_HK: 'ID'
   USER_HASHDIFF:
     is_hashdiff: true
     columns:
       - 'AGE'
       - 'NAME'
+      - 'EMAIL'
       - 'TITLE'
       - 'GENDER'
       - 'HEIGHT'

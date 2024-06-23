@@ -2,7 +2,7 @@
 source_model:
   raw: 'purchases'
 derived_columns:
-  LOAD_DATE: ('{{ run_started_at.strftime("%Y-%m-%d") }}')::DATE
+  LOAD_DATE: ('{{ run_started_at.strftime("%Y-%m-%d %H:%M:%S") }}')::TIMESTAMP
   RECORD_SOURCE: "'AIRBYTE_SAMPLE_DATA'"
   EFFECTIVE_FROM: 'PURCHASED_AT'
 hashed_columns:

@@ -11,7 +11,7 @@ data_vault_project:
       user: "{{ env_var('DBT_USER') }}"
       password: "{{ env_var('DBT_PASSWORD') }}"
       dbname: "{{ env_var('DBT_DBNAME') }}"
-      schema: raw
+      schema: public
       port: 6432
       threads: 4
 #      secure: True
