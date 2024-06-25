@@ -40,18 +40,30 @@ This project is a part of the course **[Data Warehouse Analyst (OTUS)](https://o
 ```mermaid
 graph TD
     A[Data Sources] -->|Extract| B[Airbyte]
-    subgraph dbt 
-        C[PostgreSQL Data Warehouse]
+    subgraph PostgreSQL Data Warehouse 
+        C[raw]
+        I[stg]
+        J[dds]
+        K[mart]
     end
     B -->|Load| C
-    C -->|Transform| C
-    C -->|Query| F[Apache Superset]
-    subgraph Infrastructure
-        G[Terraform]
+    C -->|dbt| I
+    I -->|dbt| J
+    J -->|dbt| K
+    
+    subgraph Docker Superset
+        F[Apache Superset]
     end
-    G --> B
-    G --> C
-    G --> F
+    
+    K -->|Query| F[Apache Superset]
+    
+    subgraph Docker Dev
+        G[Terraform]
+        H[dbt]
+    end
+    G -->|Yandex Cloud| B
+    G -->|Yandex Cloud| C
+
 ```
 
 ## Classification of Data Sources, Load Frequency, Data Formats, and Structure
