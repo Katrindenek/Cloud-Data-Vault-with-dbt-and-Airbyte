@@ -20,20 +20,20 @@ This project is a part of the course **[Data Warehouse Analyst (OTUS)](https://o
 
 ## Key Components
 
-1. Terraform:
+1. Terraform==1.4.6:
 
    - Tool for automating and managing infrastructure.
    - Used to deploy the cloud infrastructure required for the project.
 
-2. Airbyte:
+2. Airbyte==0.40.32:
    - Data integration platform for extracting and loading data from various sources.
    - Supports multiple connectors for popular data sources.
 
-3. dbt (Data Build Tool):
+3. dbt==1.5.3:
    - Handles data transformation and modeling in the data warehouse utilizing [AutomateDV](https://automate-dv.readthedocs.io/en/latest/) package.
    - Integrates with Airbyte for workflow automation.
 
-4. Apache Superset:
+4. Apache Superset==3.1.3:
    - Data visualization tool.
    - Used to create dashboards and reports based on the data transformed by dbt and Airbyte.
 
